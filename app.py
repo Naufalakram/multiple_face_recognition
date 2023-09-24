@@ -2,42 +2,31 @@ import face_recognition
 import cv2
 import os
 
-image_to_scan = 'image1.jpg'
-image_dataset_folder = 'faces'
+image_load = 'image1.jpg'
+# image_data = 'faces/rika.png'
+image_data = 'faces/rika.png'
 
-# Load the image to scan
-image = face_recognition.load_image_file(image_to_scan)
+# Load the images
+image_load_path = os.path.join(os.getcwd(), image_load)
+image_data_path = os.path.join(os.getcwd(), image_data)
+image_load = face_recognition.load_image_file(image_load_path)
+image_data = face_recognition.load_image_file(image_data_path)
 
-# Detect the faces in the image
-face_locations = face_recognition.face_locations(image)
+# Find the face locations and encodings in each image
+image_load_face_locations = face_recognition.face_locations(image_load)
+image_load_face_encodings = face_recognition.face_encodings(image_load, image_load_face_locations)
+image_data_face_locations = face_recognition.face_locations(image_data)
+image_data_face_encodings = face_recognition.face_encodings(image_data, image_data_face_locations)
 
-# Draw a rectangle around each detected face using OpenCV
-for (top, right, bottom, left) in face_locations:
-    cv2.rectangle(image, (left, top), (right, bottom), (0, 255, 0), 2)
+# Compare the face encodings
+matches = face_recognition.compare_faces(image_data_face_encodings, image_load_face_encodings[0])
 
-# Display the image with the detected faces in a window
-cv2.imshow('Faces', image)
+# Draw boxes around the faces in the image_load image
+for (top, right, bottom, left), match in zip(image_load_face_locations, matches):
+    if match:
+        cv2.rectangle(image_load, (left, top), (right, bottom), (0, 0, 255), 2)
+
+# Display the image with the boxes around the matching faces
+cv2.imshow('Image', image_load)
 cv2.waitKey(0)
-
-# Load the images from the 'faces' folder and store them in a list
-images = []
-for filename in os.listdir(image_dataset_folder):
-    # if the file name ends with '.jpg' or '.png'
-    if filename.endswith('.jpg') or filename.endswith('.png'):
-        images.append(face_recognition.load_image_file(os.path.join(image_dataset_folder, filename)))
-
-# Loop through the list of images and detect the faces in each image using face_recognition
-for image in images:
-    # Detect the faces in the image
-    face_locations = face_recognition.face_locations(image)
-
-    # Draw a rectangle around each detected face using OpenCV
-    for (top, right, bottom, left) in face_locations:
-        cv2.rectangle(image, (left, top), (right, bottom), (0, 255, 0), 2)
-
-    # Display the images with the detected faces in a window
-    cv2.imshow('Faces', image)
-    cv2.waitKey(0)
-
-# Wait for the user to press a key to exit the program
 cv2.destroyAllWindows()
