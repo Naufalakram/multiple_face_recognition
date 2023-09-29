@@ -2,7 +2,7 @@ import face_recognition
 import cv2
 import os
 
-image_load = 'image1.jpg'
+image_load = 'image2.jpg'
 image_data_folder = 'faces/'
 
 # Load the images in the image_data_folder and save their face encodings in a list
