@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Sistem Absensi - Halaman Utama</title>
+
+	<!-- Main Styles -->
+	<link rel="stylesheet" href="assets/styles/style-horizontal.min.css">
+
+	<!-- mCustomScrollbar -->
+	<link rel="stylesheet" href="assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css">
+
+	<!-- Waves Effect -->
+	<link rel="stylesheet" href="assets/plugin/waves/waves.min.css">
+
+	<!-- Sweet Alert -->
+	<link rel="stylesheet" href="assets/plugin/sweet-alert/sweetalert.css">
+
+	<!-- Color Picker -->
+	<link rel="stylesheet" href="assets/color-switcher/color-switcher.min.css">
+</head>
+
+<body>
+	<header class="fixed-header">
+		<div class="header-top">
+			<div class="container">
+				<div class="pull-left">
+					<a href="" class="logo">Sistem Absensi</a>
+				</div>
+				<!-- /.pull-left -->
+
+				<!-- /.pull-right -->
+			</div>
+			<!-- /.container -->
+		</div>
+		<!-- /.header-top -->
+
+		<!-- /.nav-horizontal -->
+	</header>
+	<!-- /.fixed-header -->
+
+
+
+	<div id="wrapper">
+		<div class="main-content container">
+			<div class="row small-spacing">
+				<div class="col-lg-4 col-md-4 col-xs-6">
+					<div class="box-content bg-success text-white" style="background :grey;cursor: pointer;" onclick="goto('home')">
+						<h4 class="box-title">Halaman Utama</h4>
+
+					</div>
+					<!-- /.box-content -->
+				</div>
+				<div class="col-lg-4 col-md-4 col-xs-6">
+					<div class="box-content bg-info text-white" style="background :grey;cursor: pointer" onclick="goto('tambah_karyawan')"">
+						<h4 class="box-title">Tambah Data Karyawan</h4>
+
+					</div>
+					<!-- /.box-content -->
+				</div>
+			</div>
+			<!-- create a button on center of this -->
+			<div class="row small-spacing text-center">
+				<a href="{{url_for('scan_face')}}" class="btn btn-primary btn-bordered waves-effect waves-light">Lakukan Absensi</a>
+			</div>
+
+
+			<footer class="footer">
+				<ul class="list-inline">
+					<li>2023 © Naufal.</li>
+					<!-- <li><a href="#">Privacy</a></li>
+				<li><a href="#">Terms</a></li>
+				<li><a href="#">Help</a></li> -->
+				</ul>
+			</footer>
+		</div>
+		<!-- /.main-content -->
+	</div><!--/#wrapper -->
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="assets/script/html5shiv.min.js"></script>
+		<script src="assets/script/respond.min.js"></script>
+	<![endif]-->
+	<!-- 
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="assets/scripts/jquery.min.js"></script>
+	<script src="assets/scripts/modernizr.min.js"></script>
+	<script src="assets/plugin/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="assets/plugin/nprogress/nprogress.js"></script>
+	<script src="assets/plugin/sweet-alert/sweetalert.min.js"></script>
+	<script src="assets/plugin/waves/waves.min.js"></script>
+	<!-- Full Screen Plugin -->
+	<script src="assets/plugin/fullscreen/jquery.fullscreen-min.js"></script>
+
+	<script src="assets/scripts/main.min.js"></script>
+	<script>
+		function goto(stat) {
+			if (stat == 'home') {
+				window.location.href = "{{url_for('home')}}";
+			} else if (stat == 'tambah_karyawan') {
+				window.location.href = "{{url_for('tambah_karyawan')}}";
+			}
+		}
+	</script>
+
+</body>
+
+</html>
