@@ -2,8 +2,10 @@ from flask import Flask, render_template , request
 import subprocess
 import threading
 import json
+import time
 
 dataset = "dataset.json"
+absensi = "absensi.json"
 
 app = Flask(__name__, static_folder='assets', template_folder='templates')
 
@@ -34,7 +36,55 @@ def run_main2_py():
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    today_date = time.strftime("%d/%m/%Y")
+    all_data = None
+    len_all_data = 0
+    # open absensi file
+    with open(absensi, 'r') as f:
+        data = json.load(f)
+        len_data = len(data)
+    
+    # if data is not empty
+    if len_data > 0:
+        # get the last data
+        last_data = data[len_data - 1]
+        # check if "date"  is today
+        if last_data['date'] == today_date:
+            # get all the "absensi" data
+            all_data = last_data['absensi']
+            # get the length of the "absensi" data
+            len_all_data = len(all_data)
+            
+        
+    
+
+    return render_template('index.html', data=all_data, length=len_all_data, today_date=today_date)
+
+@app.route('/cek_absensi')
+def cek_absensi():
+    today_date = time.strftime("%d/%m/%Y")
+    all_data = None
+    len_all_data = 0
+    # open absensi file
+    with open(absensi, 'r') as f:
+        data = json.load(f)
+        len_data = len(data)
+    
+    # if data is not empty
+    if len_data > 0:
+        # get the last data
+        last_data = data[len_data - 1]
+        # check if "date"  is today
+        if last_data['date'] == today_date:
+            # get all the "absensi" data
+            all_data = last_data['absensi']
+            # get the length of the "absensi" data
+            len_all_data = len(all_data)
+            
+        
+    
+
+    return render_template('index2.html', data=all_data, length=len_all_data, today_date=today_date)
 
 @app.route('/scan_face')
 def scan_face():

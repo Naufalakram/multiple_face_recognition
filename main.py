@@ -5,6 +5,16 @@ import numpy as np
 import math
 import sys
 import time
+import json
+from datetime import datetime
+
+absensi_file = "absensi.json"
+
+today_date = time.strftime("%d/%m/%Y")
+
+# open the dataset file
+with open(absensi_file, 'r') as f:
+    data = json.load(f)
 
 def face_confidence(face_distance, face_match_threshold=0.6):
     range = (1.0 - face_match_threshold)
@@ -49,7 +59,7 @@ class FaceRecognition:
             sys.exit('Video capture is not opened')
 
         no_face_timer = 0
-        no_face_threshold = 2  # Adjust this to your desired timeout in seconds
+        no_face_threshold = 5  # Adjust this to your desired timeout in seconds
 
         while True:
             ret, frame = video_capture.read()
@@ -86,6 +96,118 @@ class FaceRecognition:
                         if float(confidence.split("%")[0]) > 55:
                             name = self.known_face_names[best_match_index]
                             confidence = face_confidence(face_distances[best_match_index])
+
+
+                            time_now = time.strftime("%H:%M:%S")
+                            current_time = datetime.strptime(time.strftime("%H:%M:%S"), "%H:%M:%S")
+
+                            print('this is the time now: ', time_now)
+                            print('this is the current time: ', current_time)
+
+                            compare_time = datetime.strptime("12:00:00", "%H:%M:%S")
+
+                            print('this is the compare time: ', compare_time)
+
+                            # check the last data to see if today's date is already there
+                            if len(data) > 0:
+                                last_data = data[-1]
+                            else:
+                                last_data = None    
+
+                            if last_data:
+                                if last_data["date"] == today_date:
+                                    # loop through the "absensi" key to see if the name is already there
+                                    data_absensi = last_data["absensi"]
+                                    name_found = False
+
+                                    for absensi in data_absensi:
+                                        if absensi["name"] == name:
+                                            name_found = True
+                                            break
+                                    
+                                    if not name_found:
+                                        # add new data
+                                        # if time_now > "12:00:00": then add the "jam_keluar" key
+                                        
+                                        if current_time > compare_time:
+                                            data_absensi.append({
+                                                "name": name,
+                                                "jam_masuk": time_now,
+                                                "jam_keluar": time_now,
+                                            }) 
+                                        else:
+                                            data_absensi.append({
+                                                "name": name,
+                                                "jam_masuk": time_now,
+                                            })
+                                        
+                                    
+                                    # else update the data and change the "jam_keluar" key
+                                    else:
+                                        for absensi in data_absensi:
+                                            if absensi["name"] == name:
+                                                 
+                                                if current_time > compare_time:
+                                                    absensi["jam_keluar"] = time_now
+                                                # else do nothing
+                                                else:
+                                                    pass
+
+                                        
+                                                break
+
+                                else:
+                                    # create new data
+                                    if current_time > compare_time:
+                                        data.append({
+                                            "date": today_date,
+                                            "absensi": [
+                                                {
+                                                    "name": name,
+                                                    "jam_masuk": time_now,
+                                                    "jam_keluar": time_now,
+                                                }
+                                            ]
+                                        })
+                                    else:
+                                        data.append({
+                                            "date": today_date,
+                                            "absensi": [
+                                                {
+                                                    "name": name,
+                                                    "jam_masuk": time_now,
+                                                }
+                                            ]
+                                        })
+                            else:
+                                # create new data
+                                if current_time > compare_time:
+                                    data.append({
+                                        "date": today_date,
+                                        "absensi": [
+                                            {
+                                                "name": name,
+                                                "jam_masuk": time_now,
+                                                "jam_keluar": time_now,
+                                            }
+                                        ]
+                                    })
+                                else:
+                                    data.append({
+                                        "date": today_date,
+                                        "absensi": [
+                                            {
+                                                "name": name,
+                                                "jam_masuk": time_now,
+                                            }
+                                        ]
+                                    })
+
+                                
+                            # write the data to the file
+                            with open(absensi_file, 'w') as f:
+                                json.dump(data, f, indent=4)
+
                         else:
                             name = "Unknown"
                             confidence = 'Unknown'
