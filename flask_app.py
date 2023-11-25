@@ -63,6 +63,7 @@ def home():
 @app.route('/cek_absensi')
 def cek_absensi():
     today_date = time.strftime("%d/%m/%Y")
+    this_month_and_year = time.strftime("%m/%Y")
     all_data = None
     len_all_data = 0
     # open absensi file
@@ -80,11 +81,39 @@ def cek_absensi():
             all_data = last_data['absensi']
             # get the length of the "absensi" data
             len_all_data = len(all_data)
-            
-        
+
+    
+    len_karyawan = 0
+    data_karyawan = None
+
+    # open the dataset file
+    with open(dataset, 'r') as f:
+        data_karyawan = json.load(f)
+        len_karyawan = len(data_karyawan)
+
+    this_month_absensi = []
+    # print(data)  
+    for i in range(len_data):
+        # print(all_data[i])
+        if data[i]['date'][3:] == this_month_and_year:
+            this_month_absensi.append(data[i])
+ 
+    # print(this_month_absensi)        
+    # print(data_karyawan)   
+
+    # loop data_karyawan and then loop this_month_absensi to check if the name is exist, if exist then add the gaji
+    for i in range(len_karyawan):
+        pendapatan = 0
+        for j in range(len(this_month_absensi)):
+            for k in range(len(this_month_absensi[j]['absensi'])):
+                if data_karyawan[i]['name'] == this_month_absensi[j]['absensi'][k]['name']:
+                    pendapatan += data_karyawan[i]['gaji']
+        data_karyawan[i]['pendapatan'] = pendapatan
+
+    print(data_karyawan)
     
 
-    return render_template('index2.html', data=all_data, length=len_all_data, today_date=today_date)
+    return render_template('index2.html', data=all_data, length=len_all_data, today_date=today_date, data_karyawan=data_karyawan, length_karyawan=len_karyawan , bulan_ini=this_month_and_year)
 
 @app.route('/scan_face')
 def scan_face():
@@ -120,6 +149,7 @@ def tambah_karyawan():
 def tambah_karyawan_post():
     nama = request.form['nama']
     nik = request.form['nik']
+    gaji = int(request.form['gaji']) 
     # print(nama)
     # print(nik)
 
@@ -130,7 +160,8 @@ def tambah_karyawan_post():
     # insert the new data
     data.append({
         'name': nama,
-        'nik': nik
+        'nik': nik,
+        'gaji': gaji
     })
 
     # save the dataset file
@@ -139,6 +170,9 @@ def tambah_karyawan_post():
 
     # return the json
     return {'status': 'OK'}
+
+
+    
 
 # dibawah ni untuk buka main2.py dan loading page
 @app.route('/scan_face2')

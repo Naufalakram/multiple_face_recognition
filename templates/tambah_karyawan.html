@@ -88,6 +88,14 @@
 									<input type="text" class="form-control" id="nama" name="nama"
 										placeholder="Masukkan Nama Karyawan">
 								</div>
+
+								<div class="form-group">
+									<label for="nik">Gaji Karyawan / Hari</label>
+									<input type="text" class="form-control" id="gaji" name="gaji"
+										oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');"
+										placeholder="Masukkan Gaji/Hari Karyawan" minlength="6" maxlength="7">
+								</div>
+
 								<div class="form-group text-center">
 									<button type="button" onclick="tambah_data()"
 										class="btn btn-primary btn-sm waves-effect waves-light">
@@ -113,6 +121,7 @@
 										<td><b>No</b></td>
 										<td><b>NIK</b></td>
 										<td><b>Nama</b></td>
+										<td><b>Gaji/Hari</b></td>
 
 									</tr>
 								</thead>
@@ -125,6 +134,7 @@
 										<td>{{i+1}}</td>
 										<td>{{data[i]['nik']}}</td>
 										<td>{{data[i]['name']}}</td>
+										<td class="gajinya">{{data[i]['gaji']}}</td>
 									</tr>
 									{% endfor %}
 									{% endif %}
@@ -189,7 +199,8 @@
 
 			var nik = $('#nik').val();
 			var nama = $('#nama').val();
-			if (nik == '' || nama == '') {
+			var gaji = $('#gaji').val();
+			if (nik == '' || nama == '' || gaji == '') {
 				swal({
 					title: "Gagal",
 					text: "Data tidak boleh kosong",
@@ -199,12 +210,15 @@
 					closeOnConfirm: false
 				});
 			} else {
+				// remove comma from gaji
+				gaji = gaji.replace(/,/g, '');
 				$.ajax({
 					url: "http://127.0.0.1:5000/tambah_karyawan",
 					type: "POST",
 					data: {
 						nik: nik,
-						nama: nama
+						nama: nama,
+						gaji: gaji
 					},
 					success: function (data) {
 						// console.log(data)
@@ -216,6 +230,33 @@
 				});
 			}
 		}
+
+		// create a function that addn thousand separator using comma
+		function addThousandSeparator(number) {
+			// Convert the number to a string
+			let numStr = number.toString();
+
+			// Use a regular expression to add commas as thousand separators
+			numStr = numStr.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+			return numStr;
+		}
+
+		// Get all <td> elements with the class "ini dia"
+		const tdElements = document.querySelectorAll('td.gajinya');
+
+		// Iterate through each <td> element
+		tdElements.forEach(td => {
+			// Get the current value of the <td>
+			let currentValue = parseFloat(td.textContent);
+
+			// Check if the value is a valid number
+			if (!isNaN(currentValue)) {
+				// Update the content of the <td> with the formatted value
+				td.textContent = 'Rp. ' + addThousandSeparator(currentValue);
+			}
+		});
+
 	</script>
 
 </body>

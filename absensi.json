@@ -1,1 +1,51 @@
-[]
+[
+    {
+        "date": "22/09/2023",
+        "absensi": [
+            {
+                "name": "Aran",
+                "jam_masuk": "00:04:01",
+                "jam_keluar": "13:14:01"
+            }
+        ]
+    },
+    {
+        "date": "22/10/2023",
+        "absensi": [
+            {
+                "name": "Aran",
+                "jam_masuk": "00:04:01",
+                "jam_keluar": "13:14:01"
+            }
+        ]
+    },
+    {
+        "date": "23/11/2023",
+        "absensi": [
+            {
+                "name": "Aran",
+                "jam_masuk": "00:04:01",
+                "jam_keluar": "13:14:01"
+            }
+        ]
+    },
+    {
+        "date": "23/11/2023",
+        "absensi": [
+            {
+                "name": "Naufal",
+                "jam_masuk": "00:04:01",
+                "jam_keluar": "13:14:01"
+            }
+        ]
+    },
+    {
+        "date": "25/11/2023",
+        "absensi": [
+            {
+                "name": "Aran",
+                "jam_masuk": "00:14:28"
+            }
+        ]
+    }
+]
