@@ -1,7 +1,8 @@
+# daftar karyawan baru menggunakan haarcascade
 import cv2
 import json
 
-dataset = "dataset.json"
+dataset = "dataset.json" # dataset karyawan
 
 
 
@@ -23,6 +24,7 @@ cv2.namedWindow('Image Capture', cv2.WINDOW_NORMAL)
 
 # Set the window to full screen
 cv2.setWindowProperty('Image Capture', cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+
 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 

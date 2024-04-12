@@ -1,264 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
+    <title>Sistem Absensi - Halaman Tambah Karyawan</title>
 
-	<title>Sistem Absensi - Halaman Tambah Karyawan</title>
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="assets/styles/style-horizontal.min.css" />
 
-	<!-- Main Styles -->
-	<link rel="stylesheet" href="assets/styles/style-horizontal.min.css">
+    <!-- mCustomScrollbar -->
+    <link rel="stylesheet" href="assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css" />
 
-	<!-- mCustomScrollbar -->
-	<link rel="stylesheet" href="assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- Waves Effect -->
+    <link rel="stylesheet" href="assets/plugin/waves/waves.min.css" />
 
-	<!-- Waves Effect -->
-	<link rel="stylesheet" href="assets/plugin/waves/waves.min.css">
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="assets/plugin/sweet-alert/sweetalert.css" />
 
-	<!-- Sweet Alert -->
-	<link rel="stylesheet" href="assets/plugin/sweet-alert/sweetalert.css">
+    <!-- Color Picker -->
+    <link rel="stylesheet" href="assets/color-switcher/color-switcher.min.css" />
+    <!-- Data Tables -->
+    <link rel="stylesheet" href="assets/plugin/datatables/media/css/dataTables.bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/plugin/datatables/extensions/Responsive/css/responsive.bootstrap.min.css" />
+    #preview { max-width: 300px; max-height: 300px; margin-top: 20px; }
+  </head>
 
-	<!-- Color Picker -->
-	<link rel="stylesheet" href="assets/color-switcher/color-switcher.min.css">
-	<!-- Data Tables -->
-	<link rel="stylesheet" href="assets/plugin/datatables/media/css/dataTables.bootstrap.min.css">
-	<link rel="stylesheet" href="assets/plugin/datatables/extensions/Responsive/css/responsive.bootstrap.min.css">
-</head>
+  <body>
+    <header class="fixed-header">
+      <div class="header-top">
+        <div class="container">
+          <div class="pull-left">
+            <a href="" class="logo">Sistem Absensi</a>
+          </div>
+          <!-- /.pull-left -->
 
-<body>
-	<header class="fixed-header">
-		<div class="header-top">
-			<div class="container">
-				<div class="pull-left">
-					<a href="" class="logo">Sistem Absensi</a>
-				</div>
-				<!-- /.pull-left -->
+          <!-- /.pull-right -->
+        </div>
+        <!-- /.container -->
+      </div>
+      <!-- /.header-top -->
 
-				<!-- /.pull-right -->
-			</div>
-			<!-- /.container -->
-		</div>
-		<!-- /.header-top -->
+      <!-- /.nav-horizontal -->
+    </header>
+    <!-- /.fixed-header -->
 
-		<!-- /.nav-horizontal -->
-	</header>
-	<!-- /.fixed-header -->
-
-
-
-	<div id="wrapper">
-		<div class="main-content container">
-			<div class="row small-spacing">
+    <div id="wrapper">
+      <div class="main-content container">
+        <!-- <div class="row small-spacing">
 				<div class="col-lg-4 col-md-4 col-xs-6">
 					<div class="box-content bg-success text-white" style="background :grey;cursor: pointer;"
 						onclick="goto('home')">
 						<h4 class="box-title">Halaman Utama</h4>
 
 					</div>
-					<!-- /.box-content -->
+					
 				</div>
 				<div class="col-lg-4 col-md-4 col-xs-6">
 					<div class="box-content bg-info text-white" style="background :grey;cursor: pointer"
-						onclick="goto('tambah_karyawan')"">
+						onclick="goto('tambah_karyawan')">
 						<h4 class=" box-title">Tambah Data Karyawan</h4>
 
 					</div>
-					<!-- /.box-content -->
+					
 				</div>
-			</div>
-			<!-- create a button on center of this -->
-			<div class="row small-spacing">
-				<div class="col-lg-4 col-md-4 col-xs-2"></div>
-				<div class="col-lg-4 col-md-4 col-xs-8">
-					<div class="box-content ">
-						<h4 class="box-title">Informasi Karyawan</h4>
-						<div class="card-content">
-							<form>
-								<div class="form-group">
-									<label for="nik">Nomor Induk Karyawan</label>
-									<input type="text" class="form-control" id="nik" name="nik"
-										placeholder="Masukkan Nomor Induk Karyawan">
-								</div>
-								<div class="form-group">
-									<label for="nik">Nama Karyawan</label>
-									<input type="text" class="form-control" id="nama" name="nama"
-										placeholder="Masukkan Nama Karyawan">
-								</div>
+			</div> -->
+        <!-- create a button on center of this -->
+        <div class="row small-spacing">
+          <div class="col-lg-2 col-md-2 col-xs-2"></div>
+          <div class="col-lg-8 col-md-8 col-xs-8">
+            <div class="box-content">
+              <h4 class="box-title">Informasi Karyawan</h4>
+              <div class="card-content">
+                <form>
+                  <div class="form-group">
+                    <label for="nik">Nomor Induk Karyawan</label>
+                    <input type="text" class="form-control" id="nik" name="nik" placeholder="Masukkan Nomor Induk Karyawan" />
+                  </div>
+                  <div class="form-group">
+                    <label for="nik">Nama Karyawan</label>
+                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Karyawan" />
+                  </div>
 
-								<div class="form-group">
-									<label for="nik">Gaji Karyawan / Hari</label>
-									<input type="text" class="form-control" id="gaji" name="gaji"
-										oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');"
-										placeholder="Masukkan Gaji/Hari Karyawan" minlength="6" maxlength="7">
-								</div>
+                  <div class="form-group">
+                    <label for="nik">Gaji Karyawan / Hari</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="gaji"
+                      name="gaji"
+                      oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',');"
+                      placeholder="Masukkan Gaji/Hari Karyawan"
+                      minlength="6"
+                      maxlength="7"
+                    />
+                  </div>
 
-								<div class="form-group text-center">
-									<button type="button" onclick="tambah_data()"
-										class="btn btn-primary btn-sm waves-effect waves-light">
-										Submit
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-xs-2"></div>
-			</div>
+                  <div class="form-group">
+                    <label for="nik">Foto Karyawan</label>
+                    <input type="file" class="form-control" id="fileInput" name="fileInput" accept="image/*" onchange="previewImage(event)" />
 
-			<div class="row small-spacing">
-				<div class="col-xs-2 col-md-2"></div>
-				<div class="col-xs-8 col-md-8">
-					<div class="box-content card">
-						<h4 class="box-title">Jumlah Karyawan : {{length}} Orang</h4>
-						<div class="card-content">
-							<table id="example" class="table table-striped table-bordered display" style="width:100%">
-								<thead>
-									<tr>
-										<td><b>No</b></td>
-										<td><b>NIK</b></td>
-										<td><b>Nama</b></td>
-										<td><b>Gaji/Hari</b></td>
+                    <!-- <div id="imageDisplay"></div> -->
+                  </div>
+                  <div class="form-group" id="div-preview" style="display: none">
+                    <center>
+                      <div id="preview" style="height: 250px; width: 150px"></div>
+                    </center>
+                  </div>
 
-									</tr>
-								</thead>
-								<tbody>
-									{%if data %}
+                  <div class="form-group text-center">
+                    <button type="button" onclick="tambah_data()" class="btn btn-primary btn-sm waves-effect waves-light">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-2 col-xs-2"></div>
+        </div>
 
-									{% for i in range(0, length) %}
+        <div class="row small-spacing">
+          <div class="col-xs-2 col-md-2"></div>
+          <div class="col-xs-8 col-md-8">
+            <div class="box-content card">
+              <h4 class="box-title">Jumlah Karyawan : {{length}} Orang</h4>
+              <div class="card-content">
+                <table id="example" class="table table-striped table-bordered display" style="width: 100%">
+                  <thead>
+                    <tr>
+                      <td><b>No</b></td>
+                      <td><b>NIK</b></td>
+                      <td><b>Nama</b></td>
+                      <td><b>Gaji/Hari</b></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {%if data %} {% for i in range(0, length) %}
 
-									<tr>
-										<td>{{i+1}}</td>
-										<td>{{data[i]['nik']}}</td>
-										<td>{{data[i]['name']}}</td>
-										<td class="gajinya">{{data[i]['gaji']}}</td>
-									</tr>
-									{% endfor %}
-									{% endif %}
-								</tbody>
-							</table>
+                    <tr>
+                      <td>{{i+1}}</td>
+                      <td>{{data[i]['nik']}}</td>
+                      <td>{{data[i]['name']}}</td>
+                      <td class="gajinya">{{data[i]['gaji']}}</td>
+                    </tr>
+                    {% endfor %} {% endif %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-2 col-md-2"></div>
+        </div>
 
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-2 col-md-2"></div>
-
-
-
-			</div>
-
-
-
-			<footer class="footer">
-				<ul class="list-inline">
-					<li>2023 © Naufal.</li>
-					<!-- <li><a href="#">Privacy</a></li>
+        <footer class="footer">
+          <ul class="list-inline">
+            <li>2024 © CV.TIRTA RAHMAN PAREPARE.</li>
+            <!-- <li><a href="#">Privacy</a></li>
 				<li><a href="#">Terms</a></li>
 				<li><a href="#">Help</a></li> -->
-				</ul>
-			</footer>
-		</div>
-		<!-- /.main-content -->
-	</div><!--/#wrapper -->
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-		<script src="assets/script/html5shiv.min.js"></script>
-		<script src="assets/script/respond.min.js"></script>
-	<![endif]-->
-	<!-- 
+          </ul>
+        </footer>
+      </div>
+      <!-- /.main-content -->
+    </div>
+    <!--/#wrapper -->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/script/html5shiv.min.js"></script>
+      <script src="assets/script/respond.min.js"></script>
+    <![endif]-->
+    <!-- 
 	================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="assets/scripts/jquery.min.js"></script>
-	<script src="assets/scripts/modernizr.min.js"></script>
-	<script src="assets/plugin/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="assets/plugin/nprogress/nprogress.js"></script>
-	<script src="assets/plugin/sweet-alert/sweetalert.min.js"></script>
-	<script src="assets/plugin/waves/waves.min.js"></script>
-	<!-- Full Screen Plugin -->
-	<script src="assets/plugin/fullscreen/jquery.fullscreen-min.js"></script>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/scripts/jquery.min.js"></script>
+    <script src="assets/scripts/modernizr.min.js"></script>
+    <script src="assets/plugin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="assets/plugin/nprogress/nprogress.js"></script>
+    <script src="assets/plugin/sweet-alert/sweetalert.min.js"></script>
+    <script src="assets/plugin/waves/waves.min.js"></script>
+    <!-- Full Screen Plugin -->
+    <script src="assets/plugin/fullscreen/jquery.fullscreen-min.js"></script>
 
-	<!-- Data Tables -->
-	<script src="assets/plugin/datatables/media/js/jquery.dataTables.min.js"></script>
-	<script src="assets/plugin/datatables/media/js/dataTables.bootstrap.min.js"></script>
+    <!-- Data Tables -->
+    <script src="assets/plugin/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="assets/plugin/datatables/media/js/dataTables.bootstrap.min.js"></script>
 
-	<script src="assets/scripts/main.min.js"></script>
-	<script>
-		function goto(stat) {
-			if (stat == 'home') {
-				window.location.href = "{{url_for('home')}}";
-			} else if (stat == 'tambah_karyawan') {
-				window.location.href = "{{url_for('tambah_karyawan')}}";
-			}
-		}
+    <script src="assets/scripts/main.min.js"></script>
+    <script>
+      function previewImage(event) {
+        var file = event.target.files[0];
 
-		function tambah_data() {
+        // Check if the file is an image
+        if (file && file.type.startsWith("image/")) {
+          var reader = new FileReader();
 
-			var nik = $('#nik').val();
-			var nama = $('#nama').val();
-			var gaji = $('#gaji').val();
-			if (nik == '' || nama == '' || gaji == '') {
-				swal({
-					title: "Gagal",
-					text: "Data tidak boleh kosong",
-					type: "error",
-					confirmButtonClass: "btn-danger",
-					confirmButtonText: "Ok",
-					closeOnConfirm: false
-				});
-			} else {
-				// remove comma from gaji
-				gaji = gaji.replace(/,/g, '');
-				$.ajax({
-					url: "http://127.0.0.1:5000/tambah_karyawan",
-					type: "POST",
-					data: {
-						nik: nik,
-						nama: nama,
-						gaji: gaji
-					},
-					success: function (data) {
-						// console.log(data)
-						window.location.href = "{{url_for('scan_face2')}}";
-					},
-					error: function (jqXhr, textStatus, errorThrown) {
-						console.log(errorThrown);
-					}
-				});
-			}
-		}
+          reader.onload = function () {
+            var imgElement = document.createElement("img");
+            imgElement.setAttribute("src", reader.result);
+            imgElement.setAttribute("alt", "Preview Image");
 
-		// create a function that addn thousand separator using comma
-		function addThousandSeparator(number) {
-			// Convert the number to a string
-			let numStr = number.toString();
+            var previewDiv = document.getElementById("preview");
+            previewDiv.innerHTML = "";
+            previewDiv.appendChild(imgElement);
+            document.getElementById("div-preview").style.display = "block";
+            document.getElementById("preview").style.display = "block";
 
-			// Use a regular expression to add commas as thousand separators
-			numStr = numStr.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            // // Display the image in a separate div
+            // var imageDisplayDiv = document.getElementById('imageDisplay');
+            // imageDisplayDiv.innerHTML = '';
+            // var imgClone = imgElement.cloneNode(true);
+            // imageDisplayDiv.appendChild(imgClone);
+          };
 
-			return numStr;
-		}
+          reader.readAsDataURL(file);
+        } else {
+          alert("Please select an image file.");
+          document.getElementById("fileInput").value = ""; // Clear the input
+          document.getElementById("preview").innerHTML = "";
+          document.getElementById("preview").style.display = "none";
+          document.getElementById("div-preview").style.display = "none";
+        }
+      }
 
-		// Get all <td> elements with the class "ini dia"
-		const tdElements = document.querySelectorAll('td.gajinya');
+      function goto(stat) {
+        if (stat == "home") {
+          window.location.href = "{{url_for('home')}}";
+        } else if (stat == "tambah_karyawan") {
+          window.location.href = "{{url_for('tambah_karyawan')}}";
+        }
+      }
 
-		// Iterate through each <td> element
-		tdElements.forEach(td => {
-			// Get the current value of the <td>
-			let currentValue = parseFloat(td.textContent);
+      function tambah_data() {
+        var nik = $("#nik").val();
+        var nama = $("#nama").val();
+        var gaji = $("#gaji").val();
+        var fileInput = document.getElementById("fileInput");
+        if (nik == "" || nama == "" || gaji == "") {
+          swal({
+            title: "Gagal",
+            text: "Data tidak boleh kosong",
+            type: "error",
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Ok",
+            closeOnConfirm: false,
+          });
+        } else if (!fileInput.files || fileInput.files.length === 0) {
+          swal({
+            title: "Gagal",
+            text: "Silakan pilih foto karyawan",
+            type: "error",
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Ok",
+            closeOnConfirm: false,
+          });
+        } else {
+          // remove comma from gaji
+          gaji = gaji.replace(/,/g, "");
+          var file = fileInput.files[0];
+          var formData = new FormData();
+          formData.append("file", file);
+          formData.append("nik", nik);
+          formData.append("nama", nama);
+          formData.append("gaji", gaji);
+          $.ajax({
+            url: "https://absensi_karyawan.kicap-karan.com/tambah_karyawan",
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+              console.log(data);
+              // window.location.href = "{{url_for('scan_face2')}}";
+              // create swal message
+              swal({
+                title: "Berhasil",
+                text: "Data karyawan berhasil ditambahkan",
+                type: "success",
+                confirmButtonClass: "btn-success",
+              });
+              // delay 1.5 seconds then reload this page
+              setTimeout(function () {
+                window.location.href = "{{url_for('tambah_karyawan')}}";
+              }, 1500);
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+              console.log(errorThrown);
+            },
+          });
+        }
+      }
 
-			// Check if the value is a valid number
-			if (!isNaN(currentValue)) {
-				// Update the content of the <td> with the formatted value
-				td.textContent = 'Rp. ' + addThousandSeparator(currentValue);
-			}
-		});
+      // create a function that addn thousand separator using comma
+      function addThousandSeparator(number) {
+        // Convert the number to a string
+        let numStr = number.toString();
 
-	</script>
+        // Use a regular expression to add commas as thousand separators
+        numStr = numStr.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-</body>
+        return numStr;
+      }
 
+      // Get all <td> elements with the class "ini dia"
+      const tdElements = document.querySelectorAll("td.gajinya");
+
+      // Iterate through each <td> element
+      tdElements.forEach((td) => {
+        // Get the current value of the <td>
+        let currentValue = parseFloat(td.textContent);
+
+        // Check if the value is a valid number
+        if (!isNaN(currentValue)) {
+          // Update the content of the <td> with the formatted value
+          td.textContent = "Rp. " + addThousandSeparator(currentValue);
+        }
+      });
+    </script>
+  </body>
 </html>

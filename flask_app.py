@@ -1,8 +1,10 @@
-from flask import Flask, render_template , request
+from flask import Flask, render_template , request,send_from_directory, abort
 import subprocess
 import threading
 import json
 import time
+from werkzeug.utils import secure_filename
+import os
 
 dataset = "dataset.json"
 absensi = "absensi.json"
@@ -59,6 +61,14 @@ def home():
     
 
     return render_template('index.html', data=all_data, length=len_all_data, today_date=today_date)
+
+
+@app.route('/faces/<path:filename>')
+def serve_image(filename):
+    try:
+        return send_from_directory('faces', filename)
+    except FileNotFoundError:
+        abort(404)
 
 @app.route('/cek_absensi')
 def cek_absensi():
@@ -150,8 +160,13 @@ def tambah_karyawan_post():
     nama = request.form['nama']
     nik = request.form['nik']
     gaji = int(request.form['gaji']) 
+    foto = request.files['file'] 
     # print(nama)
     # print(nik)
+
+    if foto:
+        foto_filename = secure_filename(nama + '.jpg')
+        foto.save(os.path.join('faces', foto_filename))
 
     # open the dataset file
     with open(dataset, 'r') as f:

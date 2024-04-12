@@ -16,7 +16,7 @@ today_date = time.strftime("%d/%m/%Y")
 with open(absensi_file, 'r') as f:
     data = json.load(f)
 
-def face_confidence(face_distance, face_match_threshold=0.6):
+def face_confidence(face_distance, face_match_threshold=0.6): #jika nilai face distance lebih kecil dari 0.6
     range = (1.0 - face_match_threshold)
     linear_val = (1.0 - face_distance) / (range * 2.0)
 
@@ -26,6 +26,7 @@ def face_confidence(face_distance, face_match_threshold=0.6):
         value = (linear_val + ((1.0 - linear_val) * math.pow((linear_val - 0.5) * 2, 0.2))) * 100
         return str(round(value, 2)) + "%"
 
+# melakukan fungsi face recognition
 class FaceRecognition:
     face_locations = []
     face_encodings = []
@@ -59,7 +60,7 @@ class FaceRecognition:
             sys.exit('Video capture is not opened')
 
         no_face_timer = 0
-        no_face_threshold = 5  # Adjust this to your desired timeout in seconds
+        no_face_threshold = 60  # Adjust this to your desired timeout in seconds
 
         while True:
             ret, frame = video_capture.read()

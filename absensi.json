@@ -1,50 +1,319 @@
 [
     {
-        "date": "22/09/2023",
-        "absensi": [
-            {
-                "name": "Aran",
-                "jam_masuk": "00:04:01",
-                "jam_keluar": "13:14:01"
-            }
-        ]
-    },
-    {
-        "date": "22/10/2023",
-        "absensi": [
-            {
-                "name": "Aran",
-                "jam_masuk": "00:04:01",
-                "jam_keluar": "13:14:01"
-            }
-        ]
-    },
-    {
-        "date": "23/11/2023",
-        "absensi": [
-            {
-                "name": "Aran",
-                "jam_masuk": "00:04:01",
-                "jam_keluar": "13:14:01"
-            }
-        ]
-    },
-    {
-        "date": "23/11/2023",
+        "date": "23/02/2024",
         "absensi": [
             {
                 "name": "Naufal",
-                "jam_masuk": "00:04:01",
-                "jam_keluar": "13:14:01"
+                "jam_masuk": "20:28:59",
+                "jam_keluar": "20:50:27"
+            },
+            {
+                "name": "Aran",
+                "jam_masuk": "20:29:03",
+                "jam_keluar": "20:29:06"
             }
         ]
     },
     {
-        "date": "25/11/2023",
+        "date": "27/02/2024",
+        "absensi": [
+            {
+                "name": "Naufal",
+                "jam_masuk": "16:31:23",
+                "jam_keluar": "16:31:35"
+            }
+        ]
+    },
+    {
+        "date": "07/03/2024",
         "absensi": [
             {
                 "name": "Aran",
-                "jam_masuk": "00:14:28"
+                "jam_masuk": "16:58:46",
+                "jam_keluar": "17:02:35"
+            },
+            {
+                "name": "Naufal",
+                "jam_masuk": "16:58:46",
+                "jam_keluar": "17:02:35"
+            }
+        ]
+    },
+    {
+        "date": "13/03/2024",
+        "absensi": [
+            {
+                "name": "Naufal",
+                "jam_masuk": "23:34:34",
+                "jam_keluar": "23:35:15"
+            }
+        ]
+    },
+    {
+        "date": "24/03/2024",
+        "absensi": [
+            {
+                "name": "Naufal",
+                "jam_masuk": "13:09:36",
+                "jam_keluar": "13:10:54"
+            }
+        ]
+    },
+    {
+        "date": "25/03/2024",
+        "absensi": [
+            {
+                "name": "Armin",
+                "jam_masuk": "10:35:37"
+            },
+            {
+                "name": "Naufal",
+                "jam_masuk": "10:42:31",
+                "jam_keluar": "12:57:56"
+            },
+            {
+                "name": "Zul",
+                "jam_masuk": "10:42:42"
+            },
+            {
+                "name": "Ramli",
+                "jam_masuk": "10:42:58"
+            },
+            {
+                "name": "Dyah",
+                "jam_masuk": "10:43:15"
+            },
+            {
+                "name": "Radit",
+                "jam_masuk": "11:03:55"
+            }
+        ]
+    },
+    {
+        "date": "27/03/2024",
+        "absensi": [
+            {
+                "name": "Armin",
+                "jam_masuk": "08:51:09",
+                "jam_keluar": "13:10:15"
+            },
+            {
+                "name": "Dyah",
+                "jam_masuk": "08:53:23",
+                "jam_keluar": "13:06:21"
+            },
+            {
+                "name": "Arjun",
+                "jam_masuk": "08:54:03",
+                "jam_keluar": "13:10:03"
+            },
+            {
+                "name": "Ayyub",
+                "jam_masuk": "08:54:35",
+                "jam_keluar": "13:10:01"
+            },
+            {
+                "name": "Zul",
+                "jam_masuk": "08:54:45",
+                "jam_keluar": "13:10:08"
+            },
+            {
+                "name": "Naufal",
+                "jam_masuk": "09:01:23",
+                "jam_keluar": "13:11:09"
+            },
+            {
+                "name": "Adit",
+                "jam_masuk": "09:01:57",
+                "jam_keluar": "13:09:55"
+            },
+            {
+                "name": "Ramli",
+                "jam_masuk": "09:07:24",
+                "jam_keluar": "13:10:12"
+            },
+            {
+                "name": "Radit",
+                "jam_masuk": "09:24:40",
+                "jam_keluar": "13:09:58"
+            },
+            {
+                "name": "Adi",
+                "jam_masuk": "09:24:43",
+                "jam_keluar": "13:06:34"
+            }
+        ]
+    },
+    {
+        "date": "28/03/2024",
+        "absensi": [
+            {
+                "name": "Naufal",
+                "jam_masuk": "11:03:55",
+                "jam_keluar": "13:48:18"
+            },
+            {
+                "name": "Aran",
+                "jam_masuk": "11:03:57"
+            },
+            {
+                "name": "Radit",
+                "jam_masuk": "11:04:12",
+                "jam_keluar": "13:47:00"
+            },
+            {
+                "name": "Dyah",
+                "jam_masuk": "11:05:12",
+                "jam_keluar": "13:47:14"
+            },
+            {
+                "name": "Adi",
+                "jam_masuk": "11:05:16",
+                "jam_keluar": "13:47:11"
+            },
+            {
+                "name": "Adit",
+                "jam_masuk": "11:05:21",
+                "jam_keluar": "13:47:03"
+            },
+            {
+                "name": "Ayyub",
+                "jam_masuk": "11:05:28",
+                "jam_keluar": "13:46:57"
+            },
+            {
+                "name": "Arjun",
+                "jam_masuk": "11:05:31",
+                "jam_keluar": "13:46:52"
+            },
+            {
+                "name": "Zul",
+                "jam_masuk": "11:05:33",
+                "jam_keluar": "13:48:18"
+            },
+            {
+                "name": "Ramli",
+                "jam_masuk": "11:05:36",
+                "jam_keluar": "13:46:36"
+            },
+            {
+                "name": "Armin",
+                "jam_masuk": "11:05:38",
+                "jam_keluar": "13:46:29"
+            }
+        ]
+    },
+    {
+        "date": "29/03/2024",
+        "absensi": [
+            {
+                "name": "Radit",
+                "jam_masuk": "10:30:09",
+                "jam_keluar": "16:05:32"
+            },
+            {
+                "name": "Naufal",
+                "jam_masuk": "10:30:09",
+                "jam_keluar": "16:04:09"
+            },
+            {
+                "name": "Dyah",
+                "jam_masuk": "10:34:38",
+                "jam_keluar": "16:06:05"
+            },
+            {
+                "name": "Adit",
+                "jam_masuk": "10:34:52",
+                "jam_keluar": "16:06:03"
+            },
+            {
+                "name": "Adi",
+                "jam_masuk": "10:34:56",
+                "jam_keluar": "16:05:40"
+            },
+            {
+                "name": "Arjun",
+                "jam_masuk": "10:35:08",
+                "jam_keluar": "16:05:19"
+            },
+            {
+                "name": "Zul",
+                "jam_masuk": "10:35:24",
+                "jam_keluar": "16:05:12"
+            },
+            {
+                "name": "Armin",
+                "jam_masuk": "10:35:34",
+                "jam_keluar": "16:05:02"
+            },
+            {
+                "name": "Ramli",
+                "jam_masuk": "10:35:38",
+                "jam_keluar": "16:05:06"
+            },
+            {
+                "name": "Ayyub",
+                "jam_masuk": "10:36:00",
+                "jam_keluar": "16:05:26"
+            }
+        ]
+    },
+    {
+        "date": "03/04/2024",
+        "absensi": [
+            {
+                "name": "Naufal",
+                "jam_masuk": "10:15:09",
+                "jam_keluar": "15:04:09"
+            },
+            {
+                "name": "Radit",
+                "jam_masuk": "10:15:11",
+                "jam_keluar": "15:04:26"
+            },
+            {
+                "name": "Armin",
+                "jam_masuk": "10:15:29",
+                "jam_keluar": "15:04:10"
+            },
+            {
+                "name": "Dyah",
+                "jam_masuk": "10:15:30",
+                "jam_keluar": "15:04:35"
+            },
+            {
+                "name": "Ramli",
+                "jam_masuk": "10:16:08",
+                "jam_keluar": "15:04:15"
+            },
+            {
+                "name": "Ayyub",
+                "jam_masuk": "10:17:00",
+                "jam_keluar": "15:04:29"
+            },
+            {
+                "name": "Aran",
+                "jam_masuk": "10:20:02"
+            },
+            {
+                "name": "Zul",
+                "jam_masuk": "10:20:34",
+                "jam_keluar": "15:04:23"
+            },
+            {
+                "name": "Adi",
+                "jam_masuk": "10:26:48",
+                "jam_keluar": "15:04:38"
+            },
+            {
+                "name": "Arjun",
+                "jam_masuk": "10:28:08",
+                "jam_keluar": "15:04:20"
+            },
+            {
+                "name": "Adit",
+                "jam_masuk": "10:30:32",
+                "jam_keluar": "15:04:31"
             }
         ]
     }

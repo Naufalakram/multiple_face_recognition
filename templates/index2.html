@@ -2,257 +2,260 @@
 <html lang="en">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
 
-	<title>Sistem Absensi - Halaman Utama</title>
+  <title>Sistem Absensi - Cek Absensi</title>
 
-	<!-- Main Styles -->
-	<link rel="stylesheet" href="assets/styles/style-horizontal.min.css">
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="assets/styles/style-horizontal.min.css" />
 
-	<!-- mCustomScrollbar -->
-	<link rel="stylesheet" href="assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css">
+  <!-- mCustomScrollbar -->
+  <link rel="stylesheet" href="assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css" />
 
-	<!-- Waves Effect -->
-	<link rel="stylesheet" href="assets/plugin/waves/waves.min.css">
+  <!-- Waves Effect -->
+  <link rel="stylesheet" href="assets/plugin/waves/waves.min.css" />
 
-	<!-- Sweet Alert -->
-	<link rel="stylesheet" href="assets/plugin/sweet-alert/sweetalert.css">
+  <!-- Sweet Alert -->
+  <link rel="stylesheet" href="assets/plugin/sweet-alert/sweetalert.css" />
 
-	<!-- Color Picker -->
-	<link rel="stylesheet" href="assets/color-switcher/color-switcher.min.css">
-	<link rel="stylesheet" href="assets/plugin/datatables/media/css/dataTables.bootstrap.min.css">
-	<link rel="stylesheet" href="assets/plugin/datatables/extensions/Responsive/css/responsive.bootstrap.min.css">
+  <!-- Color Picker -->
+  <link rel="stylesheet" href="assets/color-switcher/color-switcher.min.css" />
+  <link rel="stylesheet" href="assets/plugin/datatables/media/css/dataTables.bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/plugin/datatables/extensions/Responsive/css/responsive.bootstrap.min.css" />
 </head>
 
 <body>
-	<header class="fixed-header">
-		<div class="header-top">
-			<div class="container">
-				<div class="pull-left">
-					<a href="" class="logo">Sistem Absensi</a>
-				</div>
-				<!-- /.pull-left -->
+  <header class="fixed-header">
+    <div class="header-top">
+      <div class="container">
+        <div class="pull-left">
+          <a href="" class="logo">Sistem Absensi</a>
+        </div>
+        <!-- /.pull-left -->
 
-				<!-- /.pull-right -->
-			</div>
-			<!-- /.container -->
-		</div>
-		<!-- /.header-top -->
+        <!-- /.pull-right -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.header-top -->
 
-		<!-- /.nav-horizontal -->
-	</header>
-	<!-- /.fixed-header -->
+    <!-- /.nav-horizontal -->
+  </header>
+  <!-- /.fixed-header -->
 
+  <div id="wrapper">
+    <div class="main-content container">
+      <div class="row small-spacing">
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-8 col-md-8">
+          <div class="box-content card">
+            <h4 class="box-title">Tanggal : {{today_date}}</h4>
+            <div class="card-content">
+              <table id="example" class="table table-striped table-bordered display" style="width: 100%">
+                <thead>
+                  <tr>
+                    <td><b>Nama</b></td>
+                    <td><b>Jam Masuk</b></td>
+                    <td><b>Jam Keluar</b></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  {%if data %} {% for i in range(0, length) %}
 
+                  <tr>
+                    <td>{{data[i]['name']}}</td>
+                    <!-- if jam keluar doesn't exist , then show "-" -->
+                    {% if data[i]['jam_keluar'] %}
+                    <td>{{data[i]['jam_masuk']}}</td>
+                    <td>{{data[i]['jam_keluar']}}</td>
+                    {% else %}
+                    <td>{{data[i]['jam_masuk']}}</td>
+                    <td>-</td>
+                    {% endif %}
+                  </tr>
+                  {% endfor %} {% else %}
+                  <tr>
+                    <td colspan="3" class="text-center">Tidak ada data</td>
+                  </tr>
+                  {% endif %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-2 col-md-2"></div>
+      </div>
 
-	<div id="wrapper">
-		<div class="main-content container">
+      <div class="row small-spacing">
+        <div class="col-xs-2 col-md-2"></div>
+        <div class="col-xs-8 col-md-8">
+          <div class="box-content card">
+            <h4 class="box-title">Bulan/Tahun : {{bulan_ini}}</h4>
+            <div class="card-content">
+              <table id="example" class="table table-striped table-bordered display" style="width: 100%">
+                <thead>
+                  <tr>
+                    <td><b>Nama</b></td>
+                    <td><b>Gaji/Hari</b></td>
+                    <td><b>Pendapatan/Bulan</b></td>
+                    <td><b>Aksi</b></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  {%if data_karyawan %} {% for i in range(0, length_karyawan) %}
 
-			<div class="row small-spacing">
-				<div class="col-xs-2 col-md-2"></div>
-				<div class="col-xs-8 col-md-8">
-					<div class="box-content card">
-						<h4 class="box-title">Tanggal : {{today_date}}</h4>
-						<div class="card-content">
-							<table id="example" class="table table-striped table-bordered display" style="width:100%">
-								<thead>
-									<tr>
-										<td><b>Nama</b></td>
-										<td><b>Jam Masuk</b></td>
-										<td><b>Jam Keluar</b></td>
+                  <tr>
+                    <td>{{data_karyawan[i]['name']}}</td>
+                    <td class="gajinya">{{data_karyawan[i]['gaji']}}</td>
+                    <td class="gajinya">{{data_karyawan[i]['pendapatan']}}</td>
 
-									</tr>
-								</thead>
-								<tbody>
-									{%if data %}
+                    <td>
+                      <!-- create a button to print slip gaji -->
+                      <button type="button" class="btn btn-xs btn-primary"
+                        onclick="printDiv(`{{data_karyawan[i]['name']}}`,`{{data_karyawan[i]['gaji']}}`,`{{data_karyawan[i]['pendapatan']}}`)">Print
+                        Slip Gaji</button>
+                    </td>
+                  </tr>
+                  {% endfor %} {% else %}
+                  <tr>
+                    <td colspan="3" class="text-center">Tidak ada data</td>
+                  </tr>
+                  {% endif %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-2 col-md-2"></div>
+      </div>
 
-									{% for i in range(0, length) %}
-
-									<tr>
-										<td>{{data[i]['name']}}</td>
-										<!-- if jam keluar doesn't exist , then show "-" -->
-										{% if data[i]['jam_keluar'] %}
-										<td>{{data[i]['jam_masuk']}}</td>
-										<td>{{data[i]['jam_keluar']}}</td>
-										{% else %}
-										<td>{{data[i]['jam_masuk']}}</td>
-										<td>-</td>
-										{% endif %}
-									</tr>
-									{% endfor %}
-									{% else %}
-									<tr>
-										<td colspan="3" class="text-center">Tidak ada data</td>
-									</tr>
-									{% endif %}
-								</tbody>
-							</table>
-
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-2 col-md-2"></div>
-
-
-
-			</div>
-
-			<div class="row small-spacing">
-				<div class="col-xs-2 col-md-2"></div>
-				<div class="col-xs-8 col-md-8">
-					<div class="box-content card">
-						<h4 class="box-title">Bulan/Tahun : {{bulan_ini}}</h4>
-						<div class="card-content">
-							<table id="example" class="table table-striped table-bordered display" style="width:100%">
-								<thead>
-									<tr>
-										<td><b>Nama</b></td>
-										<td><b>Gaji/Hari</b></td>
-										<td><b>Pendapatan/Bulan</b></td>
-										<td><b>Aksi</b></td>
-
-									</tr>
-								</thead>
-								<tbody>
-									{%if data_karyawan %}
-
-									{% for i in range(0, length_karyawan) %}
-
-									<tr>
-										<td>{{data_karyawan[i]['name']}}</td>
-										<td class="gajinya">{{data_karyawan[i]['gaji']}}</td>
-										<td class="gajinya">{{data_karyawan[i]['pendapatan']}}</td>
-
-										<td>
-											<!-- create a button to print slip gaji -->
-											<button type="button" class="btn btn-xs btn-primary"
-												onclick="printDiv(`{{data_karyawan[i]['name']}}`,`{{data_karyawan[i]['gaji']}}`,`{{data_karyawan[i]['pendapatan']}}`)">Print
-												Slip Gaji</button>
-										</td>
-
-
-									</tr>
-									{% endfor %}
-									{% else %}
-									<tr>
-										<td colspan="3" class="text-center">Tidak ada data</td>
-									</tr>
-									{% endif %}
-								</tbody>
-							</table>
-
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-2 col-md-2"></div>
-
-
-
-			</div>
-
-
-			<footer class="footer">
-				<ul class="list-inline">
-					<li>2023 © Naufal.</li>
-					<!-- <li><a href="#">Privacy</a></li>
+      <footer class="footer">
+        <ul class="list-inline">
+          <li>2024 ©CV.TIRTA RAHMAN PAREPARE.</li>
+          <!-- <li><a href="#">Privacy</a></li>
 				<li><a href="#">Terms</a></li>
 				<li><a href="#">Help</a></li> -->
-				</ul>
-			</footer>
-		</div>
-		<!-- /.main-content -->
-	</div><!--/#wrapper -->
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-		<script src="assets/script/html5shiv.min.js"></script>
-		<script src="assets/script/respond.min.js"></script>
-	<![endif]-->
-	<!-- 
+        </ul>
+      </footer>
+    </div>
+    <!-- /.main-content -->
+  </div>
+  <!--/#wrapper -->
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="assets/script/html5shiv.min.js"></script>
+      <script src="assets/script/respond.min.js"></script>
+    <![endif]-->
+  <!-- 
 	================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="assets/scripts/jquery.min.js"></script>
-	<script src="assets/scripts/modernizr.min.js"></script>
-	<script src="assets/plugin/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="assets/plugin/nprogress/nprogress.js"></script>
-	<script src="assets/plugin/sweet-alert/sweetalert.min.js"></script>
-	<script src="assets/plugin/waves/waves.min.js"></script>
-	<!-- Full Screen Plugin -->
-	<script src="assets/plugin/fullscreen/jquery.fullscreen-min.js"></script>
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="assets/scripts/jquery.min.js"></script>
+  <script src="assets/scripts/modernizr.min.js"></script>
+  <script src="assets/plugin/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script src="assets/plugin/nprogress/nprogress.js"></script>
+  <script src="assets/plugin/sweet-alert/sweetalert.min.js"></script>
+  <script src="assets/plugin/waves/waves.min.js"></script>
+  <!-- Full Screen Plugin -->
+  <script src="assets/plugin/fullscreen/jquery.fullscreen-min.js"></script>
 
-	<!-- Data Tables -->
-	<script src="assets/plugin/datatables/media/js/jquery.dataTables.min.js"></script>
-	<script src="assets/plugin/datatables/media/js/dataTables.bootstrap.min.js"></script>
+  <!-- Data Tables -->
+  <script src="assets/plugin/datatables/media/js/jquery.dataTables.min.js"></script>
+  <script src="assets/plugin/datatables/media/js/dataTables.bootstrap.min.js"></script>
 
-	<script src="assets/scripts/main.min.js"></script>
-	<script>
-		function goto(stat) {
-			if (stat == 'home') {
-				window.location.href = "{{url_for('home')}}";
-			} else if (stat == 'tambah_karyawan') {
-				window.location.href = "{{url_for('tambah_karyawan')}}";
-			}
-		}
+  <script src="assets/scripts/main.min.js"></script>
+  <script>
+    function goto(stat) {
+      if (stat == "home") {
+        window.location.href = "{{url_for('home')}}";
+      } else if (stat == "tambah_karyawan") {
+        window.location.href = "{{url_for('tambah_karyawan')}}";
+      }
+    }
 
-		// create a function that addn thousand separator using comma
-		function addThousandSeparator(number) {
-			// Convert the number to a string
-			let numStr = number.toString();
+    // create a function that addn thousand separator using comma
+    function addThousandSeparator(number) {
+      // Convert the number to a string
+      let numStr = number.toString();
 
-			// Use a regular expression to add commas as thousand separators
-			numStr = numStr.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      // Use a regular expression to add commas as thousand separators
+      numStr = numStr.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-			return numStr;
-		}
+      return numStr;
+    }
 
-		// Get all <td> elements with the class "ini dia"
-		const tdElements = document.querySelectorAll('td.gajinya');
+    // Get all <td> elements with the class "ini dia"
+    const tdElements = document.querySelectorAll("td.gajinya");
 
-		// Iterate through each <td> element
-		tdElements.forEach(td => {
-			// Get the current value of the <td>
-			let currentValue = parseFloat(td.textContent);
+    // Iterate through each <td> element
+    tdElements.forEach((td) => {
+      // Get the current value of the <td>
+      let currentValue = parseFloat(td.textContent);
 
-			// Check if the value is a valid number
-			if (!isNaN(currentValue)) {
-				// Update the content of the <td> with the formatted value
-				td.textContent = 'Rp. ' + addThousandSeparator(currentValue);
-			}
-		});
+      // Check if the value is a valid number
+      if (!isNaN(currentValue)) {
+        // Update the content of the <td> with the formatted value
+        td.textContent = "Rp. " + addThousandSeparator(currentValue);
+      }
+    });
 
+    function addThousandSeparators(value) {
+      return value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 
-		function addThousandSeparators(value) {
-            return value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
+    function printDiv(name, gaji, pendapatan) {
+    var this_month = getMonthName(new Date().getMonth()); // Get the current month name
+    var printWindow = window.open("", "", "height=600,width=400");
+    printWindow.document.write("<html><head><title>Slip Gaji Bulan " + this_month + "</title>");
+    printWindow.document.write("<style>");
+    printWindow.document.write("body { font-family: Arial, sans-serif; }");
+    printWindow.document.write(".header { text-align: center; margin-bottom: 20px; }");
+    printWindow.document.write(".line { border-top: 2px solid #000; margin-bottom: 20px; }");
+    printWindow.document.write(".content { display: flex; align-items: flex-start; margin-bottom: 20px; }");
+    printWindow.document.write(".content img { width: 110px; height: 160px; margin-right: 20px; }");
+    printWindow.document.write(".footer { display: flex; justify-content: space-between; margin-top: 20px; }");
+    printWindow.document.write(".footer p { margin: 0; }");
+    printWindow.document.write(".signature { margin-top: 40px; text-align: right; }");
+    printWindow.document.write("</style>");
+    printWindow.document.write("</head><body>");
+    printWindow.document.write("<div class='header'><h1>Slip Gaji Bulan " + this_month + "</h1></div>");
+    printWindow.document.write("<div class='line'></div>");
+    printWindow.document.write("<div class='content'>");
+    printWindow.document.write("<img src='https://absensi_karyawan.kicap-karan.com/faces/" + name + ".jpg' alt='Foto Karyawan'>");
+    printWindow.document.write("<div>");
+    printWindow.document.write("<p>Nama: " + name + "</p>");
+    printWindow.document.write("<p>Gaji: Rp." + addThousandSeparator(gaji) + "</p>");
+    printWindow.document.write("<p>Pendapatan: Rp. " + addThousandSeparator(pendapatan) + "</p>");
+    printWindow.document.write("<p>Tanggal: {{today_date}}</p>");
+    printWindow.document.write("</div>");
+    printWindow.document.write("</div>");
+    printWindow.document.write("<p>Terima kasih atas kerja keras Anda</p>");
+    printWindow.document.write("<div class='line'></div>");
+    printWindow.document.write("<br><br><br><br>");
+    printWindow.document.write("<div class='footer'>");
+    printWindow.document.write("<div class='left-signature'>");
+    printWindow.document.write("<hr>");
+    printWindow.document.write("<p>Tanda Tangan " + name + "</p>");
+    printWindow.document.write("</div>");
+    printWindow.document.write("<div class='right-signature'>");
+    printWindow.document.write("<hr>");
+    printWindow.document.write("<p>Tanda Tangan Pimpinan</p>");
+    printWindow.document.write("</div>");
+    printWindow.document.write("</div>");
+    printWindow.document.write("</body></html>");
+    printWindow.document.close();
+    printWindow.print();
+}
 
-
-		function printDiv(name, gaji, pendapatan) {
-			console.log(name, gaji, pendapatan);
-			var printWindow = window.open('', '', 'height=400,width=800');
-			printWindow.document.write('<html><head><title>DIV Contents</title>');
-			printWindow.document.write('</head><body >');
-			printWindow.document.write('<h1>Slip Gaji</h1>');
-			printWindow.document.write('<p>Nama : ' + name + '</p>');
-			printWindow.document.write('<p>Gaji : Rp.' + addThousandSeparator(gaji) + '</p>');
-			printWindow.document.write('<p>Pendapatan : Rp. ' + addThousandSeparator(pendapatan) + '</p>');
-			printWindow.document.write('<p>Tanggal : {{today_date}}</p>');
-			printWindow.document.write('<p>Terima kasih atas kerja keras anda</p>');
-			// ttd
-			printWindow.document.write('<br><br><br><br>');
-			printWindow.document.write('<p>TTD</p>');
-			printWindow.document.write('<p>Naufal</p>');
-
-
-			printWindow.document.write('</body></html>');
-			printWindow.document.close();
-			printWindow.print();
-		}
-	</script>
-
+    function getMonthName(month) {
+      var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      return months[month];
+    }
+  </script>
 </body>
 
 </html>
